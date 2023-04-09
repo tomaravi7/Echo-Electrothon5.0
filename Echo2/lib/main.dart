@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
+import 'package:page_transition/page_transition.dart';
 import 'home.dart';
 
 List<CameraDescription>? cameras;
@@ -23,7 +25,26 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.dark,
       ),
-      home: HomePage(cameras!),
+      home: MySplash(),
+    );
+  }
+}
+
+class MySplash extends StatelessWidget {
+  const MySplash({Key? key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedSplashScreen(
+      duration: 2000,
+      splash: 'assets/echo.png',
+      // animationDuration: ,
+      centered: true,
+      // backgroundColor: Colors.black,
+      nextScreen: HomePage(cameras!),
+      splashIconSize: 120,
+      splashTransition: SplashTransition.fadeTransition,
+      pageTransitionType: PageTransitionType.leftToRight,
     );
   }
 }

@@ -52,15 +52,15 @@ class BndBox extends StatelessWidget {
             padding: EdgeInsets.only(top: 5.0, left: 5.0),
             decoration: BoxDecoration(
               border: Border.all(
-                color: Color.fromRGBO(37, 213, 253, 1.0),
+                color: Colors.deepOrange,
                 width: 3.0,
               ),
             ),
             child: Text(
               "${re["detectedClass"]} ${(re["confidenceInClass"] * 100).toStringAsFixed(0)}%",
               style: TextStyle(
-                color: Color.fromRGBO(37, 213, 253, 1.0),
-                fontSize: 14.0,
+                color: Colors.deepOrange,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -72,7 +72,8 @@ class BndBox extends StatelessWidget {
     List<Widget> _renderStrings() {
       double offset = -10;
       return results.map((re) {
-        offset = offset + 50;
+        offset = offset + 80;
+
         return Positioned(
           left: 10,
           top: offset,
@@ -81,8 +82,8 @@ class BndBox extends StatelessWidget {
           child: Text(
             "${re["label"]} ${(re["confidence"] * 100).toStringAsFixed(0)}%",
             style: TextStyle(
-              color: Color.fromRGBO(37, 213, 253, 1.0),
-              fontSize: 14.0,
+              color: Colors.deepOrange,
+              fontSize: 30,
               fontWeight: FontWeight.bold,
             ),
           ),

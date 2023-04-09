@@ -60,13 +60,17 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     Size screen = MediaQuery.of(context).size;
     return Scaffold(
+      backgroundColor: Colors.white,
       body: _model == ""
           ? Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             ElevatedButton(
-              child: const Text("click me")/*Text(mobilenet)*/,
+              child: Padding(
+                padding: EdgeInsets.all(15),
+                child: Text("Start Recognition",style: TextStyle(fontSize: 20),),
+              ),
               onPressed: () => onSelect(mobilenet),
             ),
           ],
